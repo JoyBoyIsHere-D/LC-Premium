@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo, useCallback } from 'react';
+import CompanyLogo from './CompanyLogo';
 import Link from 'next/link';
 import type {
   Question,
@@ -204,7 +205,7 @@ export default function CompanyView({ data }: CompanyViewProps) {
     <div className="min-h-screen">
       {/* Top nav bar */}
       <nav className="sticky top-0 z-50 glass border-b border-gray-800/50">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 h-14 flex items-center gap-4">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 h-16 flex items-center gap-4">
           <Link
             href="/"
             className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors shrink-0"
@@ -227,10 +228,13 @@ export default function CompanyView({ data }: CompanyViewProps) {
               All Companies
             </span>
           </Link>
-          <div className="h-5 w-px bg-gray-800" />
-          <h1 className="text-lg font-bold text-white truncate">
-            {data.name}
-          </h1>
+          <div className="h-6 w-px bg-gray-800 mx-2" />
+          <div className="flex items-center gap-3">
+            <CompanyLogo name={data.name} size="sm" />
+            <h1 className="text-lg font-bold text-white truncate">
+              {data.name}
+            </h1>
+          </div>
           <div className="ml-auto flex items-center gap-3">
             <span className="text-xs text-gray-500 hidden sm:inline">
               {stats.total} problems

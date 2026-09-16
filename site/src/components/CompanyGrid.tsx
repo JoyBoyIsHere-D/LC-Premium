@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import type { CompanyIndex } from '@/lib/types';
+import CompanyLogo from './CompanyLogo';
 
 interface CompanyGridProps {
   companies: CompanyIndex[];
@@ -93,15 +94,16 @@ export default function CompanyGrid({
                 <Link
                   key={company.slug}
                   href={`/company/${company.slug}`}
-                  className="group relative overflow-hidden rounded-xl border border-gray-800/60 bg-gray-900/40 hover:bg-gray-800/50 hover:border-gray-700/60 transition-all duration-200 p-4"
+                  className="group relative overflow-hidden rounded-xl border border-gray-800/60 bg-gray-900/40 hover:bg-gray-800/50 hover:border-gray-700/60 transition-all duration-200 p-4 flex items-center gap-4"
                   id={`company-${company.slug}`}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="relative">
+                  <CompanyLogo name={company.name} size="md" />
+                  <div className="relative min-w-0 flex-1">
                     <h3 className="font-semibold text-gray-200 group-hover:text-white transition-colors truncate">
                       {company.name}
                     </h3>
-                    <div className="mt-2 flex items-center gap-2">
+                    <div className="mt-1 flex items-center gap-2">
                       <span className="text-xs font-medium text-indigo-400/80 bg-indigo-500/10 px-2 py-0.5 rounded-md">
                         {company.questionCount} problems
                       </span>
