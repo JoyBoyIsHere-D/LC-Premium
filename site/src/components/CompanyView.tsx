@@ -230,7 +230,7 @@ export default function CompanyView({ data }: CompanyViewProps) {
           </Link>
           <div className="h-6 w-px bg-gray-800 mx-2" />
           <div className="flex items-center gap-3">
-            <CompanyLogo name={data.name} size="sm" />
+            <CompanyLogo name={data.name} slug={data.slug} size="sm" />
             <h1 className="text-lg font-bold text-white truncate">
               {data.name}
             </h1>
